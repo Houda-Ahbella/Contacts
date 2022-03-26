@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Contact List</h1>
+    <a href="/new">Create New Contact</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Contact ID</th> <th>Nom</th> <th>Prenom</th> <th>Number</th> <th>Email</th> <th>Type</th> <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.id}">Product ID</td>
+            <td th:text="${contact.nom}">Name</td>
+            <td th:text="${contact.prenom}">Prenom</td>
+            <td th:text="${contact.tel}">Number</td>
+            <td th:text="${contact.email}">Email</td>
+            <td th:text="${contact.types}">Type</td>
+            <td>
+                <a th:href="@{'/edit/' + ${contact.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/delete/' + ${contact.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

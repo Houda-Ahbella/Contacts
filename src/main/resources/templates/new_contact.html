@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Contact</title>
+</head>
+<body>
+<div align="center">
+    <h1>Create New Product</h1>
+    <br />
+    <form action="#" th:action="@{/save}" th:object="${contact}"
+          method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Nom :</td>
+                <td><input type="text" th:field="*{nom}" /></td>
+            </tr>
+            <tr>
+                <td>Prenom:</td>
+                <td><input type="text" th:field="*{prenom}" /></td>
+            </tr>
+            <tr>
+                <td>Number:</td>
+                <td><input type="text" th:field="*{tel}" /></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" th:field="*{email}" /></td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select th:name="type" th:field="*{types}" >
+                        <option th:each="typ : ${allType}" th:value="${typ.type}" th:text="${typ.type}" th:selected="*{types}" ></option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+
+</body>
+</html>
